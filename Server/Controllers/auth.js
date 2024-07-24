@@ -3,9 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessRegistration = ProcessRegistration;
-exports.ProcessLogin = ProcessLogin;
-exports.ProcessLogout = ProcessLogout;
+exports.ProcessLogout = exports.ProcessLogin = exports.ProcessRegistration = void 0;
 const passport_1 = __importDefault(require("passport"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const user_1 = __importDefault(require("../Models/user"));
@@ -31,6 +29,7 @@ function ProcessRegistration(req, res, next) {
         return res.json({ success: true, msg: "User Registered successfully", data: newUser, token: null });
     });
 }
+exports.ProcessRegistration = ProcessRegistration;
 function ProcessLogin(req, res, next) {
     passport_1.default.authenticate('local', (err, user, info) => {
         if (err) {
@@ -52,10 +51,12 @@ function ProcessLogin(req, res, next) {
         return;
     })(req, res, next);
 }
+exports.ProcessLogin = ProcessLogin;
 function ProcessLogout(req, res, next) {
     req.logOut(() => {
         console.log("User Logged out successfully");
         return res.json({ success: true, msg: "User Logged out successfully", data: null, token: null });
     });
 }
+exports.ProcessLogout = ProcessLogout;
 //# sourceMappingURL=auth.js.map
