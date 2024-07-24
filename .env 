@@ -1,2 +1,2 @@
-MONGO_URI=mongodb+srv://priyankathomas1220:<password>@media.mqczfoh.mongodb.net/media
+MONGO_URI=mongodb+srv://priyankathomas1220:Thomas123@media.mqczfoh.mongodb.net/media
 APP_SECRET="SomeSecret"
