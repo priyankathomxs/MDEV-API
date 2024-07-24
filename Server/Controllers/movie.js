@@ -3,7 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeleteMovie = exports.UpdateMovie = exports.AddMovie = exports.DisplayMovieById = exports.DisplayMovieList = void 0;
+exports.DisplayMovieList = DisplayMovieList;
+exports.DisplayMovieById = DisplayMovieById;
+exports.AddMovie = AddMovie;
+exports.UpdateMovie = UpdateMovie;
+exports.DeleteMovie = DeleteMovie;
 const movie_1 = __importDefault(require("../Models/movie"));
 const Util_1 = require("../Util");
 function DisplayMovieList(req, res, next) {
@@ -15,7 +19,6 @@ function DisplayMovieList(req, res, next) {
         console.error(err);
     });
 }
-exports.DisplayMovieList = DisplayMovieList;
 function DisplayMovieById(req, res, next) {
     let id = req.params.id;
     if (id.length != 24) {
@@ -36,7 +39,6 @@ function DisplayMovieById(req, res, next) {
         });
     }
 }
-exports.DisplayMovieById = DisplayMovieById;
 function AddMovie(req, res, next) {
     let genres = (req.body.genres) ? (0, Util_1.SanitizeArray)(req.body.genres) : (0, Util_1.SanitizeArray)("");
     let directors = (req.body.directors) ? (0, Util_1.SanitizeArray)(req.body.directors) : (0, Util_1.SanitizeArray)("");
@@ -64,7 +66,6 @@ function AddMovie(req, res, next) {
         console.error(err);
     });
 }
-exports.AddMovie = AddMovie;
 function UpdateMovie(req, res, next) {
     let id = req.params.id;
     if (id.length != 24) {
@@ -100,7 +101,6 @@ function UpdateMovie(req, res, next) {
         });
     }
 }
-exports.UpdateMovie = UpdateMovie;
 function DeleteMovie(req, res, next) {
     let id = req.params.id;
     if (id.length != 24) {
@@ -116,5 +116,4 @@ function DeleteMovie(req, res, next) {
         });
     }
 }
-exports.DeleteMovie = DeleteMovie;
 //# sourceMappingURL=movie.js.map
